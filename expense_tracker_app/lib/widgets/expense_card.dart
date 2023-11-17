@@ -1,7 +1,16 @@
+import 'package:expense_tracker_app/models/expense.dart';
 import 'package:flutter/material.dart';
 
 class ExpenseCard extends StatefulWidget {
-  const ExpenseCard({super.key});
+  final String title;
+  final double amount;
+  final Category category;
+  const ExpenseCard({
+    super.key,
+    required this.title,
+    required this.amount,
+    required this.category
+  });
 
   @override
   State<ExpenseCard> createState() => _ExpenseCardState();
@@ -17,7 +26,7 @@ class _ExpenseCardState extends State<ExpenseCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(15),
+      margin: EdgeInsets.only(left: 15, right: 15, top: 5, bottom: 5),
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
@@ -27,12 +36,12 @@ class _ExpenseCardState extends State<ExpenseCard> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Flutter Course",),
+          Text(widget.title),
           Row(
             children: [
-              Text("\$19.00"),
+              Text("\$ ${widget.amount.toString()}"),
               Spacer(),
-              Icon(Icons.abc)
+              Icon(Icons.food_bank)
             ],
           )
         ],

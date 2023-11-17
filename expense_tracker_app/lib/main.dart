@@ -1,3 +1,4 @@
+import 'package:expense_tracker_app/screens/expense_overview.dart';
 import 'package:flutter/material.dart';
 import 'package:expense_tracker_app/screens/home.dart';
 import 'package:expense_tracker_app/widgets/appbar.dart';
@@ -57,8 +58,8 @@ class _ExpenseTrackerAppState extends State<ExpenseTrackerApp> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = [
-    Page1(),
-    Page2(),
+    const HomePage(),
+    const ExpenseOverview(),
     Page3(),
   ];
 
@@ -103,15 +104,6 @@ class _ExpenseTrackerAppState extends State<ExpenseTrackerApp> {
     setState(() {
       _currentIndex = index;
     });
-  }
-}
-
-class Page1 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Page 1'),
-    );
   }
 }
 
