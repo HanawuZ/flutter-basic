@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:expense_tracker_app/widgets/add_new_expense.dart';
 
 class ExpenseTrackerAppBar extends StatefulWidget implements PreferredSizeWidget{
   const ExpenseTrackerAppBar({super.key});
@@ -14,15 +15,33 @@ class ExpenseTrackerAppBar extends StatefulWidget implements PreferredSizeWidget
 
 class _ExpenseTrackerAppBarState extends State<ExpenseTrackerAppBar>{
 
+  void _openAddExpenseOverlay(){
+    showModalBottomSheet(
+        context: context,
+        builder: (ctx) {
+          return AddNewExpense();
+        }
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.purple[500],
+      backgroundColor: Colors.purple[200],
       title: Container(
-        // height: height,
-        child: Text("Expense Tracker")
+        child: Text(
+          "Expense Tracker",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 25),
+        )
       ),
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.add, size: 35, color: Colors.white,),
+          // tooltip: 'Show Snackbar',
+          onPressed:  _openAddExpenseOverlay
+
+        ),
+      ],
     );
   }
 }

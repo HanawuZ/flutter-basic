@@ -66,9 +66,7 @@ class _ExpenseTrackerAppState extends State<ExpenseTrackerApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Bottom App Bar Example'),
-      ),
+      appBar: ExpenseTrackerAppBar(),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
